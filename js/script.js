@@ -99,6 +99,18 @@ function buildAndShowHomeHTML (categories) {
     homeHtmlUrl,
     function (homeHtml) {
 
+      //get category index randomly
+      var chosenCategoryShortName = chooseRandomCategory(categories);
+
+      // now call the function to update the home with the randam category to update the home page
+      // update homeHtml
+      var cname = "'" + chosenCategoryShortName.short_name + "'";
+      homeHtml = insertProperty(homeHtml, "randomCategoryShortName", cname);
+
+      document.querySelector("#main-content")
+        .innerHTML = homeHtml;
+
+
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
